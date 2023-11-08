@@ -28,6 +28,7 @@ process.on("SIGINT", () => {
     connection.end();
     process.exit();
 })
+// console.log(process);
 const port = 8080;
 app.listen(port, () => {
       console.log(`Server is running on port ${port}`);

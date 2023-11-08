@@ -20,21 +20,21 @@ const getCustomersController = async (req, res) => {
    }
 }
 const updateCustomerDetails = async (req, res,next) => {
-    const cusID = req.params.id;
-    console.log("sdsdsdds", cusID);
-    const { name, email, mobile, gender, dob, address,user_id,amt } = req.body;
-    const updateData = [ name, email, mobile, gender, dob, address,user_id,amt];
+  const cusID = req.params.id;
+  // console.log("sdsdsdds", cusID);
+  const { name, email, mobile, gender, dob, address, user_id, amt } = req.body;
+  const updateData = [name, email, mobile, gender, dob, address, user_id, amt];
 
-    try {
-        const result = await updateCustomerDetailsModal(cusID, updateData);
-        res.json(result)
-
-       
-    } catch (e) {
-        console.log(e)
-        next()
-    }
+  try {
+    const result = await updateCustomerDetailsModal(cusID, updateData);
+    res.json(result);
+  } catch (e) {
+    console.log(e);
+    next();
+  }
 }
+
+
 module.exports = {
   CustomersControler,
   getCustomersController,

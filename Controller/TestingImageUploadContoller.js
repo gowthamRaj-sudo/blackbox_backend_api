@@ -4,15 +4,13 @@ const TestingImageUploadsController = async (req,res) => {
     const  image  = req.file
     // console.log(image,"hi")
     try {
-        console.log(image)
-        if (image) {
-            
-            await TestingImageUploadsModal(image.filename)
-            return res.status(200).json({message:"upload image successfully !"})
-        } else {
-        return res.status(400).json({message:"imagefile is missing !"})
-        }
-        
+      // console.log(image)
+      if (image) {
+        await TestingImageUploadsModal(image.filename);
+        return res.status(200).json({ message: "upload image successfully !" });
+      } else {
+        return res.status(400).json({ message: "imagefile is missing !" });
+      }
     } catch (e) {
         console.log(e)
         return res.status(500).json({Error:e})

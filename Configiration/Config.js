@@ -22,15 +22,15 @@ const pool = mysql2.createPool({
       )`;
 
     let ledgerData = `CREATE TABLE IF NOT EXISTS ledgerDataTable(id int NOT NULL AUTO_INCREMENT,
-      Portfolio_Name varchar(256) NOT NULL ,Leg_ID varchar(256) NOT NULL,Exchange varchar(256)NOT NULL ,Exchange_Symbol varchar(256)NOT NULL,Product varchar(256) NOT NULL,
-     Order_Type varchar(256) NOT NULL,Order_ID varchar(256) NOT NULL,Time varchar(256) NOT NULL,
-     Txn varchar(256) NOT NULL,Qty varchar(256) NOT NULL,Filled_Qty varchar(256) NOT NULL,
-     Exchg_Time varchar(256) NOT NULL, Avg_Price varchar(256) NOT NULL,
-     Status varchar(256) NOT NULL,Limit_Price varchar(256) NOT NULL,
-     Order_Failed varchar(256) NOT NULL, User_ID varchar(256) NOT NULL,User_Alias varchar(256) NOT NULL,
-     Remarks varchar(256) NOT NULL,Tag varchar(256) NOT NULL,PRIMARY KEY(id))`;
+      Portfolio_Name varchar(256)  ,Leg_ID varchar(256) ,Exchange varchar(256) ,Exchange_Symbol varchar(256),Product varchar(256) ,
+     Order_Type varchar(256),Order_ID varchar(256),Time varchar(256),
+     Txn varchar(256) ,Qty varchar(256),Filled_Qty varchar(256),
+     Exchg_Time varchar(256), Avg_Price varchar(256) ,
+     Status varchar(256) ,Limit_Price varchar(256),
+     Order_Failed varchar(256), User_ID varchar(256),User_Alias varchar(256),
+     Remarks varchar(256) ,Tag varchar(256),Bsmtm varchar(256),Netpl varchar(256)  ,PRIMARY KEY(id))`;
     // image testing
-    let TestingImageUploads = `CREATE TABLE IF NOT EXISTS images(id INT NOT NULL AUTO_INCREMENT ,ImagesData VARCHAR(512)NOT NULL,PRIMARY KEY(id))`;
+    let TestingImageUploads = `CREATE TABLE IF NOT EXISTS images(id INT NOT NULL AUTO_INCREMENT ,ImagesData VARCHAR(512)NOT NULL,Sno varchar(256), PRIMARY KEY(id))`;
     await connection.query(TestingImageUploads);
     await connection.query(customersTable);
     await connection.query(ledgerData);

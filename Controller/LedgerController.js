@@ -19,21 +19,20 @@ const getUploadFilesLedgerController = async (req, res) => {
     const { fromDate,toDate} = req.query;
 
     try {
-        let response;
-        console.log(fromDate)
-        if (fromDate===""&& toDate==="" ) {
-            response = await getUploadFilesLedgerModal(fromDate,toDate);
+      let response;
+      // console.log(fromDate)
+      if (fromDate === "" && toDate === "") {
+        response = await getUploadFilesLedgerModal(fromDate, toDate);
         //    console.log(response)
-          
-            
-        } if (fromDate&&toDate) {
-          response = await getUploadFilesLedgerModal(fromDate,toDate);
-        } else {
-          response = await getUploadFilesLedgerModal();
-          //    console.log(response);
-        }
-        console.log(response)
-         return res.json(response);
+      }
+      if (fromDate && toDate) {
+        response = await getUploadFilesLedgerModal(fromDate, toDate);
+      } else {
+        response = await getUploadFilesLedgerModal();
+        //    console.log(response);
+      }
+      // console.log(response)
+      return res.json(response);
     } catch (e) {
         console.log(e)
         throw e
