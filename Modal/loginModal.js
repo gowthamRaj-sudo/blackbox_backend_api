@@ -31,7 +31,7 @@ const loginUserDataModal = async (userData) => {
       const storedPassword = result[0][0].passwordData;
 
       if (storedPassword === userData[1]) {
-        return true; 
+        return result; 
       }
     }
 

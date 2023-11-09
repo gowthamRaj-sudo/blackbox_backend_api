@@ -40,7 +40,9 @@ const loginUserDataController = async (req, res, next) => {
     try {
       const result = await loginUserDataModal(userData);
       if (result) {
-        return res.status(200).json({ message: "Login successful!" });
+        return res
+          .status(200)
+          .json({ message: "Login successful!", data: result });
       } else {
         return res.status(400).json({ error: "Invalid User & Password" });
       }
