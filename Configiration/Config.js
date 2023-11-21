@@ -2,8 +2,8 @@ const mysql2 = require("mysql2/promise");
 
 const pool = mysql2.createPool({
   host: "localhost",
-  user: "root",
-  password: "Password@123#@!",
+  user: "vinith",
+  password: "Vinith@123",
   database: "black_box",
   waitForConnections: true,
   connectionLimit: Infinity,
@@ -28,7 +28,7 @@ const pool = mysql2.createPool({
      Exchg_Time varchar(256), Avg_Price varchar(256) ,
      Status varchar(256) ,Limit_Price varchar(256),
      Order_Failed varchar(256), User_ID varchar(256),User_Alias varchar(256),
-     Remarks varchar(256) ,Tag varchar(256),Bsmtm varchar(256),Netpl varchar(256)  ,PRIMARY KEY(id))`;
+     Remarks varchar(256) ,Tag varchar(256),Bsmtm varchar(256),Netpl varchar(256),PRIMARY KEY(id))`;
     // image testing
     let TestingImageUploads = `CREATE TABLE IF NOT EXISTS images(id INT NOT NULL AUTO_INCREMENT ,ImagesData VARCHAR(512)NOT NULL,Sno varchar(256), PRIMARY KEY(id))`;
     await connection.query(TestingImageUploads);
@@ -37,7 +37,7 @@ const pool = mysql2.createPool({
     await connection.query(loginUser);
     const [row] = await connection.query("SELECT * FROM loginUser");
     if (row.length === 0) {
-      await connection.query(`INSERT INTO loginUser (userName,passwordData)VALUES('gowtham@gmail.com','123456')`);
+      await connection.query(`INSERT INTO loginUser (userName,passwordData)VALUES('tsvinith@gmail.com','123456')`);
       console.log("loginUser table  data is inserted !")
     }
     console.log("Table created successfully !");

@@ -34,12 +34,28 @@ const getCustomersModal = async () => {
             return {update:"Update Successfully!"}
             
         } catch (e) {
-console.error(e);
+        console.error(e);
             throw e
         }
     };
+const getPortfolioNameByTag = async (tag) => {
+const sql = `SELECT Portfolio_Name FROM ledgerDataTable WHERE Tag = ?`;
+const sql1 = `SELECT Portfolio_Name FROM ledgerDataTable`;
+
+  try {
+    const connection = await pool.getConnection();
+    const [result] = tag !== "All"? await connection.query(sql, [tag]): await connection.query(sql1);
+    connection.release();
+
+    return result;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+    }
     module.exports = {
     CustomerModal,
     getCustomersModal,
     updateCustomerDetailsModal,
+    getPortfolioNameByTag
     };

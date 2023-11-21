@@ -27,6 +27,10 @@ router.get("/getCustomersDetails", CustomersControler.getCustomersController);
    "/updateCustomersDetails/:id",
    CustomersControler.updateCustomerDetails
  );
+ router.get(
+  "/protfolioName/:tag",
+  CustomersControler.getPortfolioName
+);
  router.post("/uploadFilesLedger", uploadLegderFileController.uploadLegderController);
 router.get("/getUploadFilesLedger", uploadLegderFileController.getUploadFilesLedgerController);
 

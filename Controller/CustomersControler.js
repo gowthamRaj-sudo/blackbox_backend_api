@@ -1,4 +1,4 @@
-const { CustomerModal, getCustomersModal, updateCustomerDetailsModal } = require("../Modal/CustomerModal");
+const { CustomerModal, getCustomersModal, updateCustomerDetailsModal, getPortfolioNameByTag } = require("../Modal/CustomerModal");
 const CustomersControler =
 
 async (req, res, next) => {
@@ -34,9 +34,18 @@ const updateCustomerDetails = async (req, res,next) => {
   }
 }
 
-
+const getPortfolioName = async (req, res) => {
+  const tag=req.params.tag
+  try {
+      const response = await getPortfolioNameByTag(tag);
+      return res.status(200).json(response)
+  } catch (e) {
+      return res.status(500).json({ error: "Internal server error!" });
+ }
+}
 module.exports = {
   CustomersControler,
   getCustomersController,
   updateCustomerDetails,
+  getPortfolioName
 };
